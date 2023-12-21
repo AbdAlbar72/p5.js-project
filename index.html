@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natasha's Birthday App</title>
+    <style>
+        #video {
+            width: 100%;
+            max-width: 640px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Natasha's Birthday App</h1>
+    <video id="video" autoplay></video>
+    <button onclick="capturePicture()">Capture Picture</button>
+    <canvas id="canvas" style="display: none;"></canvas>
+
+    #video {
+        width: 100%;
+        max-width: 640px;
+    }
+    </style>
+    </head>
+    <body>
+    <h1>Webcam Demo</h1>
+    <video id="video" autoplay></video>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const video = document.getElementById('video');
+    
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then((stream) => {
+                video.srcObject = stream;
+            })
+            .catch((error) => {
+                console.error('Error accessing webcam:', error);
+            });
+    });
+</body>
+</html>
